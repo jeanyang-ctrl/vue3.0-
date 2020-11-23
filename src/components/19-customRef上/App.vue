@@ -6,13 +6,15 @@
 </template>
 
 <script>
-  /*
+  /*如何自定义ref，实际上自定义一个ref的方法
   1.customRef
   返回一个ref对象,可以显式地控制依赖追踪和触发响应
   * */
+ //导入一个customref
   import {ref, customRef} from 'vue';
 
 function myRef(value) {
+  //导出一个customref
   return customRef((track, trigger)=>{
     return {
       get(){

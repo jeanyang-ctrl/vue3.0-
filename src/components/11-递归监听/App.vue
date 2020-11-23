@@ -14,7 +14,7 @@
   默认情况下, 无论是通过ref还是reactive都是递归监听
 
   2.递归监听存在的问题
-  如果数据量比较大, 非常消耗性能
+  如果数据量比较大,每一层都要递归包装成Proxy对象,非常消耗性能
 
   3.非递归监听
   * */
@@ -24,6 +24,9 @@ export default {
   name: 'App',
   setup() {
     let state = reactive({
+      //无论你创建多少层，都可以内部递归监听，
+      //修改每个层的数据都可以监听到
+      //这是因为因为每一层都包装成Proxy对象
     // let state = ref({
         a:'a',
         gf:{
@@ -42,15 +45,16 @@ export default {
         // state.gf.f.c = '3';
         // state.gf.f.s.d = '4';
 
+// ref监听数据，＋.value
         // state.value.a = '1';
         // state.value.gf.b = '2';
         // state.value.gf.f.c = '3';
         // state.value.gf.f.s.d = '4';
 
-        console.log(state);
-        console.log(state.gf);
-        console.log(state.gf.f);
-        console.log(state.gf.f.s);
+        console.log(state);//第一层
+        console.log(state.gf);//第二层
+        console.log(state.gf.f);//第三层
+        console.log(state.gf.f.s);//第四层
     }
     return {state, myFn}
   }

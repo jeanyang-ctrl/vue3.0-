@@ -13,13 +13,13 @@
     通过当前数据的__v_ref来判断的
     如果有这个私有的属性, 并且取值为true, 那么就代表是一个ref类型的数据
     -->
-    <p>{{age}}</p>
+    <p>{{ age }}</p>
     <button @click="myFn">按钮</button>
   </div>
 </template>
 
 <script>
-  /*
+/*
   1.ref和reactive区别
   - 如果是reactive在template中不会自动添加.value
 
@@ -28,30 +28,29 @@
 
   3.Vue如何判断?
   通过包装后的是有属性
-  __v-isRef
+  __v_isRef
 
   4.我们如何判断数据到底是ref还是reactive?
   通过isRef / isReactive 方法
   * */
-  import {isRef, isReactive} from 'vue';
-  import {reactive} from 'vue';
-  // import {ref} from 'vue';
+import { isRef, isReactive } from "vue";
+import { reactive } from "vue";
+// import {ref} from 'vue';
 export default {
-  name: 'App',
+  name: "App",
   setup() {
     // ref(18) -> reactive({value: 18})
     // let age = ref(18);
-    let age = reactive({value: 18});
+    let age = reactive({ value: 18 });
     function myFn() {
-        console.log(isRef(age));
-        console.log(isReactive(age));
-        age.value = 666;
+      console.log(age);//RefImpl{...__v_isRef:true...}
+      console.log(isRef(age));
+      console.log(isReactive(age));
+      age.value = 666;
     }
-    return {age, myFn}
-  }
-}
+    return { age, myFn };
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

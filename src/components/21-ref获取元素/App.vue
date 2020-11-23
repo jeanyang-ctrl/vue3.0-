@@ -13,14 +13,16 @@
 export default {
   name: 'App',
   /*
+    setup
   beforeCreate
-  setup
   Created
   * */
+//  在组合api中如何编写生命周期了？vue3.0把生命周期函数都抽取出去了
   setup() {
-    // console.log(this.$refs.box);
+    // console.log(this.$refs.box);vue3.0是不能这样获取的
     let box = ref(null); // reactive({value: null})
 
+//当界面挂载，自动渲染这个生命周期函数
     onMounted(()=>{
       console.log('onMounted',box.value);
     });

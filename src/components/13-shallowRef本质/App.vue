@@ -13,7 +13,7 @@ export default {
   setup() {
     // ref -> reactive
     // ref(10) ->  reactive({value:10})
-    // shallowRef ->  shallowReactive
+    // shallowRef 监听的是.value变化->  shallowReactive
     // shallowRef(10)  ->  shallowReactive({value: 10})
     // 所以如果是通过shallowRef创建的数据, 它监听的是.value的变化
     // 因为底层本质上value才是第一层

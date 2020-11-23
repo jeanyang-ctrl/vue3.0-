@@ -22,8 +22,10 @@ export default {
   name: 'App',
   setup() {
       let obj = {name:'lnj', age:18};
+      //下一行代码是把obj中的name变成响应式数据
       // let name = toRef(obj, 'name');
       // let age = toRef(obj, 'age');
+      //两行代码变成一行代码
       let state = toRefs(obj);
 
       function myFn() {

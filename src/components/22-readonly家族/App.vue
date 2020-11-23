@@ -41,6 +41,7 @@ export default {
       state.attr.age = 666;
       state.attr.height = 1.66;
       console.log(state);
+      //判断是否是只读数据
       console.log(isReadonly(state));
       // value = 456;
       // console.log(value);

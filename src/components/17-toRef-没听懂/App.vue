@@ -23,12 +23,12 @@ export default {
   setup() {
       let obj = {name:'lnj'};
       /*
-      ref(obj.name) -> ref(lnj)
-      -> reactive({value:lnj})
+      ref(obj.name) -> 相当于取出obj.name  ->ref(lnj)
+      -> 相当于调用reactive函数给它个对象-> reactive({value:lnj})
       * */
-      // ref->复制
+      // ref->复制 浅拷贝 复制内存地址
       // let state = ref(obj.name);
-      // toRef->引用
+      // toRef->引用 
       /*
       ref和toRef区别:
       ref->复制, 修改响应式数据不会影响以前的数据

@@ -2,6 +2,7 @@
 1.Proxy注意点
 - set方法必须通过返回值告诉Proxy此次操作是否成功
 * */
+//proxy接收一个数组，获取数组当中的第一个元素
 // let obj = {name:'lnj', age:18};
 let arr = [1, 3, 5]; // [1, 3, 5, 7]
 let state = new Proxy(arr, {

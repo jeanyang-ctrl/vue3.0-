@@ -36,7 +36,7 @@ export default {
   },
 };
 // 综上：入口函数定义的变量，外界不能使用
-//好处是不要卸载data里面，不要写在methods里面
+//好处是不要写在data里面，不要写在methods里面
 </script>
 
 <style></style>

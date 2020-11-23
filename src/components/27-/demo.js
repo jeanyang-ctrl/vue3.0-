@@ -1,7 +1,7 @@
 /*
-1.shallowReactive, shallowRef  //非递归监听
+1.shallowReactive, shallowRef
 2.shallowReadonly
-3.reactive, ref  //递归监听
+3.reactive, ref
 4.readonly
 * */
 
@@ -9,25 +9,17 @@ function shallowRef(val) {
     return shallowReactive({value:val});
 }
 
-function reactive(obj) {
-    if(typeof obj === 'Object'){
-        if(obj instanceof Array){
-
+function shallowReactive(obj) {
+    return new Proxy(obj, {
+        get(obj, key){
+            return obj[key];
+        },
+        set(obj, key, val){
+            obj[key] = val;
+            console.log('更新UI界面');
+            return true;
         }
-        return new Proxy(obj, {
-            get(obj, key){
-                return obj[key];
-            },
-            set(obj, key, val){
-                obj[key] = val;
-                console.log('更新UI界面');
-                return true;
-            }
-        })
-    }else{
-        console.warn(`${obj} is not Object`)
-    }
-   
+    })
 }
 let obj = {
     a:'a',
